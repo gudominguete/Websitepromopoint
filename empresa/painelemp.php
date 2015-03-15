@@ -11,13 +11,16 @@
 			$result = mysql_query($query);
 			if(!$result)
 	        {
+				setcookie('emploginerror',true);
+				setcookie('emplogado',false);
 	        	die('Invalid query: ' . mysql_error());
 	        }
 	        $num_rows = mysql_num_rows($result);
 	        if($num_rows === 0)
 	        {
 		        setcookie('emploginerror',true);
-		        header("Location: empresa.php");
+		    	setcookie("emplogado",false);
+		        header("Location: index.php");
 	        }
 			$row = mysql_fetch_assoc($result);
 			setcookie("emplogado", true, time()+3600*24);
@@ -35,8 +38,14 @@
 	    }
 		else
 		{
-			header("Location: empresa.php");
+			
+			setcookie("emplogado",false);
+			header("Location: index.php");
 		}
+	}
+	else
+	{
+		header("Location: index.php");
 	}
 ?>
 <!DOCTYPE html>

@@ -1,4 +1,4 @@
 <?php
     setcookie("emplogado",false);
-	header("Location: empresa.php");
+	header("Location: index.php");
 ?>

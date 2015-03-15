@@ -21,7 +21,7 @@
 	
 	setcookie("empcriarlogin",true);
 	
-	header("Location: empresa.php");
+	header("Location: index.php");
 ?>
 </body>
 </html>
